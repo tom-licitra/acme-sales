@@ -40,3 +40,28 @@ const sales = [
     }
 ];
 
+const generateCustomerSalesMap = (objSales, objCustomers) => {
+
+    let salesByCustomer = {}; // create output object
+
+    // for each customer...
+    objCustomers.forEach(customer => {
+
+        // store the customer ID
+        let currID = customer.id; 
+
+        // reduce the sales obj to sum 'total' for that customerID
+        let currTotal = objSales.reduce((sum, order) => {
+            if(order.customerID === currID){
+                return sum + order.total;
+            }
+            return sum;
+        },0);
+
+        // add the sum to the output object
+        salesByCustomer[customer.name] = currTotal;
+    });
+
+    return salesByCustomer; // return output object
+}
+
