@@ -65,3 +65,6 @@ const generateCustomerSalesMap = (objSales, objCustomers) => {
     return salesByCustomer; // return output object
 }
 
+// console.log(generateCustomerSalesMap(sales,customers));
+
+module.exports = generateCustomerSalesMap;
